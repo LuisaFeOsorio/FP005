@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth"><head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Lilá Floristería | Emociones que florecen</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <script>
+    tailwind.config={theme:{extend:{
+          colors:{lila:{50:'#FBF8FF',100:'#F3EBFC',200:'#E6D8F8',300:'#D6BFF3',400:'#C3A2EC',500:'#AB83E0',600:'#8F63C9',700:'#6F45A6',ink:'#3A1F57'}},
+          fontFamily:{serif:['"Cormorant Garamond"','serif'],sans:['"Plus Jakarta Sans"','sans-serif']}
+        }}}
+  </script>
+  <style>
+    .t{transition:all .3s cubic-bezier(.4,0,.2,1)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .float{animation:float 5s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.float{animation:none}}
+    :focus-visible{outline:2px solid #6F45A6;outline-offset:2px}
+    /* Animación del carrusel */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-sans text-neutral-700 bg-white antialiased selection:bg-lila-400 selection:text-white overflow-x-hidden">
+
+<!-- 1. HEADER -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-lila-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <a href="#inicio" class="flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full bg-gradient-to-br from-lila-300 to-lila-500 text-white flex items-center justify-center"><i class="fa-solid fa-spa"></i></span>
+      <span class="flex flex-col"><span class="font-serif text-2xl tracking-[0.25em] font-semibold text-lila-ink leading-none">LILÁ</span><span class="text-[9px] tracking-[0.35em] text-neutral-400 uppercase mt-1">Floristería</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-neutral-600">
+      <a class="text-lila-700 font-semibold border-b-2 border-lila-500 pb-1" href="#inicio">Inicio</a>
+      <a class="hover:text-lila-700 t" href="#ramos">Ramos</a>
+      <a class="hover:text-lila-700 t" href="#categorias">Categorías</a>
+      <a class="hover:text-lila-700 t" href="#visitanos">Visítanos</a>
+      <a class="hover:text-lila-700 t" href="#proceso">Cómo funciona</a>
+      <a class="hover:text-lila-700 t" href="#testimonios">Clientes</a>
+      <a class="hover:text-lila-700 t" href="#faq">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-1 sm:gap-3 text-neutral-700">
+      <button aria-label="Buscar" class="w-10 h-10 hover:text-lila-700 t"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button aria-label="Mi cuenta" class="hidden sm:block w-10 h-10 hover:text-lila-700 t"><i class="fa-regular fa-user"></i></button>
+      <button aria-label="Carrito" class="relative w-10 h-10 hover:text-lila-700 t"><i class="fa-solid fa-basket-shopping"></i><span class="absolute top-1 right-0 bg-lila-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span></button>
+      <button id="menuBtn" aria-label="Abrir menú" aria-expanded="false" class="lg:hidden w-10 h-10 text-xl"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+  <nav id="mobileMenu" class="hidden lg:hidden bg-white border-t border-lila-100 px-4 py-2 text-sm font-medium divide-y divide-lila-100">
+    <a class="block py-3" href="#inicio">Inicio</a>
+    <a class="block py-3" href="#ramos">Ramos</a>
+    <a class="block py-3" href="#categorias">Categorías</a>
+    <a class="block py-3" href="#visitanos">Visítanos</a>
+    <a class="block py-3" href="#proceso">Cómo funciona</a>
+    <a class="block py-3" href="#testimonios">Clientes</a>
+    <a class="block py-3" href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 2. HERO SECTION -->
+  <section id="inicio" class="relative bg-white flex flex-col lg:flex-row min-h-[85vh] lg:min-h-[70vh]">
+
+    <div class="w-full lg:w-1/2 bg-lila-200 flex items-center justify-center p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white/30 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-lg text-center lg:text-left">
+        <span class="inline-flex items-center gap-2 bg-white/70 backdrop-blur text-lila-700 text-xs font-semibold px-4 py-2 rounded-full mb-5"><i class="fa-solid fa-wand-magic-sparkles"></i>Arreglos florales exclusivos</span>
+        <h1 class="font-serif text-5xl sm:text-6xl xl:text-7xl leading-[1.05] text-lila-ink tracking-tight mb-5">Emociones que <em class="font-normal text-lila-700">florecen</em></h1>
+        <p class="text-lila-ink/75 text-base sm:text-lg leading-relaxed mb-8">Cada ramo cuenta una historia. Haz que la tuya sea inolvidable, con el diseño y la frescura que nos caracterizan.</p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a href="#ramos" class="inline-flex items-center justify-center gap-2 bg-lila-ink text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-lila-700 hover:-translate-y-0.5 hover:shadow-xl t">Comprar ahora <i class="fa-solid fa-arrow-right text-xs"></i></a>
+          <a href="#proceso" class="inline-flex items-center justify-center gap-2 bg-white/70 text-lila-ink px-8 py-4 rounded-full font-semibold text-sm hover:bg-white t">Cómo funciona</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 relative min-h-[350px] lg:min-h-full">
+      <img src ="img/imgl.jpeg" id="heroImg" alt="Ramo de flores Lilá" class="absolute inset-0 w-full h-full object-cover object-center"/>
+      <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl px-5 py-4 flex items-center gap-3 float">
+        <span class="w-10 h-10 rounded-full bg-lila-100 text-lila-700 flex items-center justify-center"><i class="fa-solid fa-truck-fast text-sm"></i></span>
+        <span class="text-xs leading-tight"><b class="block text-lila-ink">Entrega el mismo día</b>En pedidos antes de las 2 pm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BARRA DE PROMOCIONES -->
+  <section class="bg-lila-ink text-white py-3 px-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto flex items-center justify-center text-xs sm:text-sm font-semibold tracking-wide text-center">
+      <span><i class="fa-solid fa-gift text-lila-300 mr-2"></i>10% OFF en ramos seleccionados usando el código <span class="px-2 py-1 bg-white/20 rounded ml-1">FLORECE10</span></span>
+    </div>
+  </section>
+
+  <!-- 4. BANDA DE BENEFICIOS -->
+  <section class="bg-white py-10 border-b border-lila-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+      <div class="flex flex-col items-center text-center gap-2">
+        <div class="w-12 h-12 rounded-full bg-lila-50 flex items-center justify-center text-lila-600 text-xl"><i class="fa-solid fa-seedling"></i></div>
+        <h4 class="text-sm font-bold text-lila-ink mt-2">Flores frescas</h4>
+        <p class="text-[11px] sm:text-xs text-neutral-500">Seleccionadas cada mañana</p>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2">
+        <div class="w-12 h-12 rounded-full bg-lila-50 flex items-center justify-center text-lila-600 text-xl"><i class="fa-solid fa-truck-fast"></i></div>
+        <h4 class="text-sm font-bold text-lila-ink mt-2">Entrega rápida</h4>
+        <p class="text-[11px] sm:text-xs text-neutral-500">El mismo día en la ciudad</p>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2">
+        <div class="w-12 h-12 rounded-full bg-lila-50 flex items-center justify-center text-lila-600 text-xl"><i class="fa-solid fa-heart"></i></div>
+        <h4 class="text-sm font-bold text-lila-ink mt-2">Hecho a mano</h4>
+        <p class="text-[11px] sm:text-xs text-neutral-500">Diseños únicos para ti</p>
+      </div>
+      <div class="flex flex-col items-center text-center gap-2">
+        <div class="w-12 h-12 rounded-full bg-lila-50 flex items-center justify-center text-lila-600 text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4 class="text-sm font-bold text-lila-ink mt-2">Pago seguro</h4>
+        <p class="text-[11px] sm:text-xs text-neutral-500">Compra con total confianza</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RAMOS DESTACADOS -->
+  <section id="ramos" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-10 sm:mb-14">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">Nuestros ramos favoritos</h2>
+        <p class="text-neutral-500 mt-3 text-sm sm:text-base">Elige uno y lo preparamos hoy mismo, con flores recién llegadas.</p>
+      </div>
+      <div id="grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6"></div>
+    </div>
+  </section>
+
+  <!-- 6. CATEGORÍAS (4 IMÁGENES POR FILA CON OVERLAY Y TÍTULO) -->
+  <section id="categorias" class="py-16 sm:py-24 bg-lila-50/30 border-t border-lila-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">Encuentra el ramo perfecto</h2>
+        <p class="text-neutral-500 mt-3 text-sm sm:text-base">Para cada momento hay una flor que lo dice mejor.</p>
+      </div>
+      <div id="cats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- 7. SECCIÓN TIENDA, IMAGEN DEL LOCAL Y GOOGLE MAPS -->
+  <section id="visitanos" class="py-16 sm:py-24 bg-white border-t border-lila-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">Visita nuestra boutique</h2>
+        <p class="text-neutral-500 mt-3 text-sm sm:text-base">Te esperamos con los brazos abiertos para asesorarte en persona.</p>
+      </div>
+
+      <!-- Grid de 3 columnas: Info Tienda | Foto del Local | Mapa -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Columna 1: Información de la Tienda -->
+        <div class="bg-lila-50 rounded-3xl p-8 border border-lila-100 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-white text-lila-700 text-xs font-semibold px-4 py-2 rounded-full mb-6 shadow-sm">
+              <i class="fa-solid fa-store"></i> Tienda Principal
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-lila-ink font-semibold mb-6">Lilá Floristería Boutique</h3>
+
+            <ul class="space-y-5 text-sm text-neutral-600">
+              <li class="flex items-start gap-3">
+                <span class="w-9 h-9 rounded-xl bg-white text-lila-600 flex items-center justify-center flex-shrink-0 shadow-sm"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <b class="block text-lila-ink">Dirección</b>
+                  <span>Calle 45 #33-67, Bogotá</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-9 h-9 rounded-xl bg-white text-lila-600 flex items-center justify-center flex-shrink-0 shadow-sm"><i class="fa-regular fa-clock"></i></span>
+                <div>
+                  <b class="block text-lila-ink">Horarios</b>
+                  <span>Lun - Sáb: 8:00 AM - 7:00 PM<br/>Dom: 9:00 AM - 3:00 PM</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-9 h-9 rounded-xl bg-white text-lila-600 flex items-center justify-center flex-shrink-0 shadow-sm"><i class="fa-solid fa-phone"></i></span>
+                <div>
+                  <b class="block text-lila-ink">Teléfono</b>
+                  <span>+57 300 123 4567</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-lila-200/65 flex flex-col gap-2.5">
+            <a data-wa href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-lila-ink text-white px-5 py-3 rounded-full font-semibold text-xs hover:bg-lila-700 t">
+              <i class="fa-brands fa-whatsapp text-sm"></i> Escribir a la tienda
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Imagen del Local / Fachada -->
+        <div class="rounded-3xl overflow-hidden shadow-md border border-lila-100 relative min-h-[320px] group">
+          <img src="https://images.unsplash.com/photo-1775743093104-d8e53e5ed250?q=80&w=443&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-2xl px-4 py-3 shadow-sm flex items-center justify-between">
+            <span class="text-xs font-bold text-lila-ink flex items-center gap-2">
+              <i class="fa-solid fa-store text-lila-600"></i> Nuestra Boutique
+            </span>
+            <span class="text-[11px] text-neutral-500">¡Te esperamos!</span>
+          </div>
+        </div>
+
+        <!-- Columna 3: Google Maps Embed -->
+        <div class="w-full h-[320px] lg:h-auto rounded-3xl overflow-hidden shadow-md border border-lila-100 relative">
+          <iframe
+            title="Ubicación Lilá Floristería"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.812328456123!2d-74.0610328241852!3d4.662985395311818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5e3f5e3f5e%3A0x8e3f9a5e3f5e3f5e!2sZona%20Rosa%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+            class="w-full h-full border-0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CÓMO FUNCIONA -->
+  <section id="proceso" class="py-16 sm:py-24 bg-lila-50/50 border-t border-lila-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">¿Cómo funciona tu pedido?</h2>
+        <p class="text-neutral-500 mt-3 text-sm sm:text-base">Comprar tus flores favoritas nunca fue tan fácil.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="w-14 h-14 mx-auto bg-white rounded-full flex items-center justify-center text-lila-600 text-2xl font-serif font-bold shadow-sm mb-4">1</div>
+          <h3 class="font-bold text-sm sm:text-base text-lila-ink mb-1">Elige tu ramo</h3>
+          <p class="text-[11px] sm:text-xs text-neutral-500">Explora nuestro catálogo y encuentra el diseño perfecto.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 mx-auto bg-white rounded-full flex items-center justify-center text-lila-600 text-2xl font-serif font-bold shadow-sm mb-4">2</div>
+          <h3 class="font-bold text-sm sm:text-base text-lila-ink mb-1">Escríbenos</h3>
+          <p class="text-[11px] sm:text-xs text-neutral-500">Haz clic en "Pedir" y envía tu solicitud por WhatsApp.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 mx-auto bg-white rounded-full flex items-center justify-center text-lila-600 text-2xl font-serif font-bold shadow-sm mb-4">3</div>
+          <h3 class="font-bold text-sm sm:text-base text-lila-ink mb-1">Lo preparamos</h3>
+          <p class="text-[11px] sm:text-xs text-neutral-500">Armamos tu arreglo el mismo día con flores frescas.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 mx-auto bg-white rounded-full flex items-center justify-center text-lila-600 text-2xl font-serif font-bold shadow-sm mb-4">4</div>
+          <h3 class="font-bold text-sm sm:text-base text-lila-ink mb-1">¡Sorpresa!</h3>
+          <p class="text-[11px] sm:text-xs text-neutral-500">Entregamos en la puerta de quien quieres sorprender.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA SECUNDARIO -->
+  <section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-lila-600 to-lila-400 text-white px-6 py-12 sm:px-14 sm:py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-2xl">
+      <i class="fa-solid fa-spa absolute -right-8 -bottom-10 text-[12rem] text-white/10 pointer-events-none"></i>
+      <div class="relative">
+        <h3 class="font-serif text-3xl sm:text-4xl">¿Necesitas algo especial?</h3>
+        <p class="text-white/90 text-sm sm:text-base mt-2 max-w-md">Diseñamos arreglos personalizados para eventos, bodas y momentos únicos.</p>
+      </div>
+      <a data-wa href="#" target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center gap-2.5 bg-white text-lila-ink hover:bg-lila-50 font-semibold px-8 py-4 rounded-full text-sm shadow-lg t whitespace-nowrap">Cotizar por WhatsApp <i class="fa-brands fa-whatsapp text-green-600 text-lg"></i></a>
+    </div>
+  </section>
+
+  <!-- 10. TESTIMONIOS (CARRUSEL) -->
+  <section id="testimonios" class="py-16 sm:py-24 bg-lila-50/40 border-y border-lila-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">Lo que dicen de Lilá</h2>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-lila-100">
+        <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-10">
+          <div class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 relative">
+            <div class="absolute inset-0 bg-lila-200 rounded-full transform -rotate-6"></div>
+            <img id="testImg" alt="Cliente" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-sm transition-opacity duration-300"/>
+          </div>
+          <div class="text-center md:text-left">
+            <div class="text-lila-300 text-3xl mb-2"><i class="fa-solid fa-quote-left"></i></div>
+            <blockquote id="testText" class="font-serif text-lg sm:text-xl text-lila-ink italic leading-relaxed min-h-[60px] transition-opacity duration-300">
+              Cargando...
+            </blockquote>
+            <div class="flex justify-center md:justify-start items-center text-amber-400 gap-1 text-xs mt-3">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p id="testName" class="font-semibold text-sm text-lila-ink mt-1 transition-opacity duration-300"></p>
+          </div>
+        </div>
+
+        <button onclick="prevTestimonial()" class="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-lila-50 shadow flex items-center justify-center text-lila-700 hover:bg-lila-200 transition-colors"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+        <button onclick="nextTestimonial()" class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-lila-50 shadow flex items-center justify-center text-lila-700 hover:bg-lila-200 transition-colors"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+      </div>
+
+      <div id="testDots" class="flex justify-center items-center gap-2 mt-6"></div>
+    </div>
+  </section>
+
+  <!-- 11. FAQ -->
+  <section id="faq" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-4xl sm:text-5xl text-lila-ink">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-3">
+        <details class="group bg-lila-50/50 border border-lila-100 rounded-2xl p-4 sm:p-5 cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-lila-ink marker:content-none">
+            <span>¿Con cuánta anticipación debo pedir?</span>
+            <i class="fa-solid fa-chevron-down text-xs group-open:rotate-180 transition-transform text-lila-600"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">Para envíos el mismo día recomendamos pedir antes de las 2:00 PM. Para eventos o arreglos personalizados grandes, sugerimos 48 horas de anticipación.</p>
+        </details>
+        <details class="group bg-lila-50/50 border border-lila-100 rounded-2xl p-4 sm:p-5 cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-lila-ink marker:content-none">
+            <span>¿Hacen entregas a domicilio?</span>
+            <i class="fa-solid fa-chevron-down text-xs group-open:rotate-180 transition-transform text-lila-600"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">Sí, realizamos entregas el mismo día en toda la ciudad. Coordinamos la hora exacta contigo al momento de confirmar el pedido por WhatsApp.</p>
+        </details>
+        <details class="group bg-lila-50/50 border border-lila-100 rounded-2xl p-4 sm:p-5 cursor-pointer">
+          <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-lila-ink marker:content-none">
+            <span>¿Puedo personalizar un arreglo?</span>
+            <i class="fa-solid fa-chevron-down text-xs group-open:rotate-180 transition-transform text-lila-600"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed">¡Claro! Escríbenos por WhatsApp y cuéntanos tu idea. Podemos adaptar colores, tipos de flores y agregar una tarjeta personalizada sin costo extra.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. REDES SOCIALES -->
+  <section id="contacto" class="py-14 bg-lila-50 border-t border-lila-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h3 class="font-serif text-3xl sm:text-4xl text-lila-ink mb-8">Síguenos y florece con nosotros</h3>
+      <div id="social" class="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"></div>
+    </div>
+  </section>
+</main>
+
+<!-- 13. FOOTER -->
+<footer class="bg-lila-ink text-lila-200 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+      <div class="col-span-2 lg:col-span-1 space-y-4">
+        <span class="flex items-center gap-2 font-serif text-2xl tracking-[0.25em] font-semibold text-white"><i class="fa-solid fa-spa text-lila-300 text-lg"></i>LILÁ</span>
+        <p class="text-xs text-lila-300 leading-relaxed">Creamos momentos únicos a través de flores.</p>
+        <div class="flex gap-4 text-lila-300"><a aria-label="Instagram" href="#" class="hover:text-white t"><i class="fa-brands fa-instagram"></i></a><a aria-label="Facebook" href="#" class="hover:text-white t"><i class="fa-brands fa-facebook-f"></i></a><a aria-label="TikTok" href="#" class="hover:text-white t"><i class="fa-brands fa-tiktok"></i></a></div>
+      </div>
+      <div><h4 class="text-xs tracking-widest font-semibold text-white mb-4">NAVEGACIÓN</h4><ul class="space-y-2 text-xs"><li><a class="hover:text-white" href="#inicio">Inicio</a></li><li><a class="hover:text-white" href="#ramos">Ramos</a></li><li><a class="hover:text-white" href="#categorias">Categorías</a></li><li><a class="hover:text-white" href="#visitanos">Visítanos</a></li></ul></div>
+      <div><h4 class="text-xs tracking-widest font-semibold text-white mb-4">AYUDA</h4><ul class="space-y-2 text-xs"><li><a class="hover:text-white" href="#faq">Preguntas frecuentes</a></li><li><a class="hover:text-white" href="#">Envíos y entregas</a></li><li><a class="hover:text-white" href="#">Cambios y devoluciones</a></li></ul></div>
+      <div><h4 class="text-xs tracking-widest font-semibold text-white mb-4">CONTACTO</h4><ul class="space-y-2.5 text-xs"><li class="flex gap-2"><i class="fa-solid fa-phone text-lila-400 mt-0.5"></i>+57 300 123 4567</li><li class="flex gap-2"><i class="fa-regular fa-envelope text-lila-400 mt-0.5"></i>hola@lilafloristeria.com</li><li class="flex gap-2"><i class="fa-solid fa-location-dot text-lila-400 mt-0.5"></i><span>Calle 45 #33-67<br/>Bogotá, Colombia</span></li></ul></div>
+      <div class="col-span-2 lg:col-span-1"><h4 class="text-xs tracking-widest font-semibold text-white mb-2">NEWSLETTER</h4><p class="text-xs text-lila-300 mb-3">Recibe promociones y novedades.</p>
+        <form class="flex" onsubmit="event.preventDefault();this.reset();"><input aria-label="Correo electrónico" required class="bg-white/10 text-white placeholder-lila-300/60 text-xs px-4 py-3 rounded-l-full border border-white/20 focus:outline-none focus:border-lila-300 w-full min-w-0" placeholder="Tu correo" type="email"/><button aria-label="Suscribirse" class="bg-lila-500 hover:bg-lila-400 px-4 rounded-r-full text-white t" type="submit"><i class="fa-regular fa-paper-plane text-xs"></i></button></form></div>
+    </div>
+    <p class="pt-8 text-center text-xs text-lila-400/80">© <span id="yr">2026</span> LILÁ Floristería. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Flotante -->
+<a data-wa href="#" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-14 h-14 rounded-full bg-[#1FAF54] text-white flex items-center justify-center text-3xl shadow-xl hover:scale-105 t"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+  const PHONE="573001234567";
+  const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
+  const $=id=>document.getElementById(id);
+  const I=id=>"https://lh3.googleusercontent.com/aida-public/"+id;
+
+  document.querySelectorAll('[data-wa]').forEach(a=>a.href=wa('¡Hola Lilá! 💜 Quisiera hacer un pedido.'));
+  $('yr').textContent=new Date().getFullYear();
+  $('menuBtn').onclick=()=>{const o=$('mobileMenu').classList.toggle('hidden');$('menuBtn').setAttribute('aria-expanded',!o)};
+  $('mobileMenu').querySelectorAll('a').forEach(a=>a.onclick=()=>$('mobileMenu').classList.add('hidden'));
+
+
+
+  // Productos
+  const P=[
+    ["Bruma Lavanda","$115.000","Ramo de rosas y lilas en caja","AB6AXuA2BgGIwwM1MV7tAZ49mFDVsCxEtqJoIRONbPD5769cIE-HjK8-cjGLJ6xEJ0pdbCj96tAbO2bREMAI6avTbe0sQXtAwlSHTcRrD6w6P99vZ-DX-j-3XKXAA6LS1FaXm3ZD6MLEsy6fE7LEmY2qZF99bcFs9mjJzEd1Dz-DD_4-EFZL3ZhhkZZhxjV9lTlMkiC0_9bljepLUNPL5UDatLgfsxxJQ3YcpJj3MPoCqKUwYLthku7nhmOQrg"],
+    ["Sinfonía Rosé","$135.000","Ramo floral rosa pastel","AB6AXuA4H-YD6tpodhTs8q5kd0Mk6E8aR2xTXuZSoM6mSiUfxhVhwCA1d9KmQhnk_0EAmvUrUhXrDYSCugjVYGWwqkMD3PK8BHoXVns4MVKlMoZtyRJ5ywLWQP8QPtUtFsup50jPs08uh5ktvqaIs2qVOLfyVIsxteK9OWwhrcDD1yV2M4M4B6bZoav0VvxmQ1h0cV15RlHodgpV5ZT3GFWxjAi6AQJLcyEzpPmCatHRKMMgOVUAEH0Z24wLsg"],
+    ["Jardín Encantado","$150.000","Centro de mesa con flores moradas y hortensias","AB6AXuBGIpQNOMIG-4Gg-0XzyY79pdNn3aDPRISk7TKeHhDqOUMVDA6ky2sX5YwvLHJ-ef96TFIYytU_QbP4xLFcfBYs3uvuatgii2_XFN0veB8YI-dbbfLX3Z0lq9cZST53zM6rgzrlytw4RpIrZIK6sgJ5Z2XXSz26Dnn112-cUOpWoxeRlKgdBr_ocjnUhkLKpD9yVek2oL6kVDj0DlelFxIZ9OltClyC1YRjyrqAhYtosVawzH68ho3u8A"],
+    ["Destellos de Alba","$120.000","Ramo primaveral con rosas blancas y malvas","AB6AXuBQDlsbzA4MCxQBrtMRUbqZU1dzVDIYpfjeKCAvTH4YTRhUIT4ghFcFzwsyaU6ZJbfzXE2l7MBCTZMw6cKvy6mjwitP6Ff7npD-vEYp8y3d2wDcTo7jmDDw9e3EdPK62Posq-mTensy5QyE_g-8VNbpQsBwnKqNToWtWQthmUDwOYU8HprlzMDGzEbWFp56x6IULPsV5_-qM_vTzs57EZlaujPcE-12AR8cK517hFeCraCXuZjWVkj-Fw"],
+    ["Dulce Romance","$128.000","Ramo en tonos rosa y durazno","AB6AXuAeRc_x1U6q07YDKxN86EIlak1Pqj878ZEmnGR9EkrV-Up30BnkxYy8VBGgMQ1OqWypjLQNuaY16X_mBueiHFin8EkMVCPh_jsf31lm8I45YHwIbYnDpm2A-VCLfmOddUPTkAydLAc_lYZl76jxYP2UhycMobhtf3QuALu70Xq_FjbS303FiCVMRFP6x-K7uKP5z3mrceeGKEPRqxU-smOeITknM5-xBMBIX7TvDv_pwDmsVRT9GPb3wQ"],
+    ["Pasión Violeta","$145.000","Tulipanes y orquídeas violetas","AB6AXuDYdJ56uewlncrhO4dd1ppVgKaQxMhrSD_Z33SFrIvv90_0q8vNvCw2r28VLioDWhfkWO5jX3M_ZgJbWTIV8eQt79bRqPJ5j1cLmnSflTV1VwW86wf6pIbRb54uAXM2N-HcmkJPxVOFzBZ8SusVv3T7BiJnha9RR0prd2tfvltLBIcVih2ipjVNAPVxQZiMGJNleY6VLXzOtY9-BUCKDsuWKUAPcMNkmakNRCZ4eeM16-Z6WhwyzdpMCA"],
+    ["Aromas de Primavera","$160.000","Arreglo de peonías y rosas en canasta","AB6AXuAp_jQ-Nbu3_kZ1QTgMqPIIGrnMi3aXvhZU0lz1uEUwLA_5VnnN1Axnnwz5qR08WoaiIU4PbYqv4qSkvwUSYMXuLm7htJGcegEXkfXM9YKRGD03TJzJgkYm0KGnJXQMvty8ViEh2UCOaYYQ6DomtckiytTHhkK3bWYaWXAXrV7jL_acPxsBXDFsiSFrZUzd_MILXhiRvo3A6UdbWsEZnNZ528gcOAZs4OUCsKMcgBpg6VvkkKgqtAoymQ"],
+    ["Caja de Lujo Lilá","$180.000","Caja circular con rosas lila preservadas","AB6AXuCFLZGOvyNIYE6DACXEEf1jYR1w8VE_a1adBrTaILNzx9iGBdWM0bgb9kfTBg6IyNGHQdC9m9Rbm7iq28mXyYxOBZfBLVglsYf2Sn-IAA1bTrt1QxXF-HCT6LUF-MvYYpqPap36rmGyMKB6NpMCeu3LeWcjrWTS_gHc3NkTS7VZvJIfcZyRDMMM4-jKpuxuNvhaHa5zQ2wFuElm8SfrgHnS0NcpBQonkG9A7uK-gr8PI3OOp9A1CmZafQ"]];
+
+  $('grid').innerHTML=P.map(([n,p,a,id])=>`
+<article class="group bg-white rounded-2xl overflow-hidden border border-lila-100 shadow-sm hover:shadow-xl hover:-translate-y-1 t">
+ <div class="aspect-square overflow-hidden bg-lila-100 relative"><img alt="${a}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="${I(id)}"/></div>
+ <div class="p-3 sm:p-4 text-center">
+  <h3 class="font-serif text-lg sm:text-xl text-lila-ink font-semibold leading-tight">${n}</h3>
+  <p class="text-sm text-lila-700 font-semibold mt-1">${p} <span class="text-[10px] text-neutral-400 font-normal">COP</span></p>
+  <a target="_blank" rel="noopener noreferrer" href="${wa(`¡Hola Lilá! 💜 Quisiera pedir el ramo *${n}* (${p} COP). ¿Tienen disponibilidad?`)}" class="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-lila-100 text-lila-700 hover:bg-lila-600 hover:text-white text-xs font-semibold py-2.5 rounded-full t"><i class="fa-brands fa-whatsapp"></i>Pedir</a>
+ </div></article>`).join('');
+
+  // Categorías con Overlay y Tarjetas (4 por fila)
+  const C=[
+    ["Cumpleaños","AB6AXuDMavBjIAHBnFNRlnxeKCxLkKuMWUbEL5fdpeApSj_jL0Q9BhMzCxqDAFUnLf5nXT5VJ-YsDPnE-l1BcQswENvn3e5Vx6PneAN0_ffKm9P52P8UkrdhzrJuZl_Wi578QoPY9DdIorO_Qq_qtXN2IZwZFbH_OextKbp2Ke0khoaPMUPneO9SDICoj6AZU7FTDu9NaDjEGl9rRyRmlrlvm1bYJCcXMssympveEd9pQazYxKEoZWH3i3tP3g"],
+    ["Amor & Romance","AB6AXuDEj6ewMK7n6dBiteuy818HGrpv1Yx8mvUf21T7-EbAD86H1LhlrfiCJ26FsHUoLtLTiUczyXRYihmbYptwx0nyDI6xu5EOCAiITlIvqtwLiKOei5D-H4iSqT2QmoeKW72j_iUSvdjuaTiq5fAPu902X1AfK5NxrTioIfuWrUmu3ORZyqf710pRdCtfIpYuXmsYUAT8dudntIN-At64lz5kLgmcIjwKGeoVwNkQL7Em1j15bIq7Mj0-uQ"],
+    ["Aniversarios","AB6AXuDL_zJyH8R_lwXQzaEbjr1-Bit462hMBZhgPSkGRyEVSOE87PQieNamDxr46ehWnj3Ig1hHW5El0ikRUZHwAbPONPCIuylIOPHbywQZTChMXYx_rb2Ye68G6-5JmtZIRp3C286fKj-m_Zbj99NAV1hFLGJG4Z-RKlUCtKMMdsVHDn31-iSuf4Idyo1rdxOSpozMGnZFb_brM-DpwlDnjng4KTgA-JxET00a1kEqupgkRxF7aMH2yFHc3g"],
+    ["Nacimientos","AB6AXuDEX40sHJgfWhVderLvILnYI1LFkwi93vjkfy6d-ivEzrVGUD-d7zTdgwa_BKaKSr4vUowJv3MafXkAXdcEvTZZQU7S1CK4FBlzUYJO4eSQ6yhuqUPTSBrcDae541Y9onShWsFPUNxBdWeLsfrtbxwgGjS-5PE4sHjz3cvU501EBPCJcyhv9LGa6pKBuU6jTbwYY30rLO8Xl9yJQpCL4a3__JhxY2NomiTPwLk39XOgHOberLqxXTd-5w"],
+    ["Graduaciones","AB6AXuCN9nPSiw1_jMVz9YFYJv02dvqCmgHUI1WlpAWdSqFVBBLd05T-FHReFs_MBzN0fIgtGNFNF1H58SZuvpS8Zjr7dPGgQCrxrMHk_rz003EdD9C0KmHbizEqaRF3r7Efn-XeG778yVeDv3I5stfaw3QrNESK9ycwrZyDBuRVy9n59IfTRccREkRn064If8pGhRh1SO2Y5wJi5JOk0lHe4vwBuyQpTHRSwwdnLhrfNFbrS_JGXIQ5_mF_0A"],
+    ["Condolencias","AB6AXuAp_jQ-Nbu3_kZ1QTgMqPIIGrnMi3aXvhZU0lz1uEUwLA_5VnnN1Axnnwz5qR08WoaiIU4PbYqv4qSkvwUSYMXuLm7htJGcegEXkfXM9YKRGD03TJzJgkYm0KGnJXQMvty8ViEh2UCOaYYQ6DomtckiytTHhkK3bWYaWXAXrV7jL_acPxsBXDFsiSFrZUzd_MILXhiRvo3A6UdbWsEZnNZ528gcOAZs4OUCsKMcgBpg6VvkkKgqtAoymQ"],
+    ["Agradecimiento","AB6AXuBQDlsbzA4MCxQBrtMRUbqZU1dzVDIYpfjeKCAvTH4YTRhUIT4ghFcFzwsyaU6ZJbfzXE2l7MBCTZMw6cKvy6mjwitP6Ff7npD-vEYp8y3d2wDcTo7jmDDw9e3EdPK62Posq-mTensy5QyE_g-8VNbpQsBwnKqNToWtWQthmUDwOYU8HprlzMDGzEbWFp56x6IULPsV5_-qM_vTzs57EZlaujPcE-12AR8cK517hFeCraCXuZjWVkj-Fw"],
+    ["Eventos Especiales","AB6AXuCFLZGOvyNIYE6DACXEEf1jYR1w8VE_a1adBrTaILNzx9iGBdWM0bgb9kfTBg6IyNGHQdC9m9Rbm7iq28mXyYxOBZfBLVglsYf2Sn-IAA1bTrt1QxXF-HCT6LUF-MvYYpqPap36rmGyMKB6NpMCeu3LeWcjrWTS_gHc3NkTS7VZvJIfcZyRDMMM4-jKpuxuNvhaHa5zQ2wFuElm8SfrgHnS0NcpBQonkG9A7uK-gr8PI3OOp9A1CmZafQ"]
+  ];
+
+  $('cats').innerHTML=C.map(([n,id])=>`
+<a href="${wa(`Hola Lilá 💜, me gustaría ver opciones de arreglos para *${n}*.`)}" target="_blank" class="group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md block">
+  <img alt="Flores para ${n}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 ease-out" src="${I(id)}"/>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-lila-ink/90 group-hover:via-lila-ink/40 transition duration-300"></div>
+  <div class="absolute inset-0 p-6 flex flex-col justify-end items-center text-center z-10">
+    <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-white tracking-wide group-hover:scale-105 transition duration-300">${n}</h3>
+    <span class="mt-2 text-xs font-medium text-lila-200 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center gap-1">Ver colección <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+  </div>
+</a>`).join('');
+
+  // Redes Sociales
+  $('social').innerHTML=[
+    ["fa-instagram","Instagram","@lila.floristeria","bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600"],
+    ["fa-facebook-f","Facebook","/lilafloristeria","bg-[#5A78BE]"],
+    ["fa-tiktok","TikTok","@lila.floristeria","bg-black"],
+    ["fa-pinterest-p","Pinterest","/lilafloristeria","bg-[#e60023]"]]
+    .map(([i,n,h,c])=>`<a href="#" class="flex items-center gap-3 p-3.5 bg-white rounded-2xl border border-lila-200 hover:shadow-lg hover:-translate-y-0.5 t text-left"><span class="w-11 h-11 rounded-xl ${c} flex items-center justify-center text-white text-lg flex-shrink-0"><i class="fa-brands ${i}"></i></span><span class="min-w-0"><b class="block text-xs text-lila-ink">${n}</b><span class="block text-[11px] text-neutral-500 truncate">${h}</span></span></a>`).join('');
+
+  // Lógica del Carrusel de Testimonios
+  const testimonios = [
+    { text: "“El ramo llegó perfecto y a tiempo. Superó mis expectativas, ¡hermoso!”", name: "María Fernanda G.", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" },
+    { text: "“Pedí un arreglo para el cumpleaños de mi mamá y lloró de la emoción. ¡Gracias Lilá!”", name: "Carolina M.", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" },
+    { text: "“La atención por WhatsApp fue súper rápida. Las flores duraron más de una semana.”", name: "Andrés R.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" }
+  ];
+
+  let currentTest = 0;
+  const testImg = document.getElementById('testImg');
+  const testText = document.getElementById('testText');
+  const testName = document.getElementById('testName');
+  const testDots = document.getElementById('testDots');
+
+  function renderTestDots() {
+    testDots.innerHTML = '';
+    testimonios.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = `w-2 h-2 rounded-full transition-all ${i === currentTest ? 'bg-lila-600 w-4' : 'bg-lila-200'}`;
+      dot.onclick = () => { currentTest = i; updateTestimonial(); };
+      testDots.appendChild(dot);
+    });
+  }
+
+  function updateTestimonial() {
+    testImg.style.opacity = '0'; testText.style.opacity = '0'; testName.style.opacity = '0';
+
+    setTimeout(() => {
+      testImg.src = testimonios[currentTest].img;
+      testText.innerText = testimonios[currentTest].text;
+      testName.innerText = testimonios[currentTest].name;
+      renderTestDots();
+      testImg.style.opacity = '1'; testText.style.opacity = '1'; testName.style.opacity = '1';
+    }, 250);
+  }
+
+  function nextTestimonial() { currentTest = (currentTest + 1) % testimonios.length; updateTestimonial(); }
+  function prevTestimonial() { currentTest = (currentTest - 1 + testimonios.length) % testimonios.length; updateTestimonial(); }
+
+  renderTestDots();
+  setInterval(nextTestimonial, 6000);
+</script>
+</body></html>
